@@ -7,6 +7,7 @@ import 'package:tvshow/src/screens/settings.dart';
 import 'package:tvshow/src/screens/sign_in.dart';
 import 'package:tvshow/src/screens/sign_up.dart';
 import 'package:tvshow/src/screens/tvshow_detail.dart';
+import 'package:tvshow/src/screens/tvshow_research.dart';
 
 import 'package:tvshow/src/widgets/fade_transition_page.dart';
 import 'package:tvshow/src/widgets/tvshow_list.dart';
@@ -84,7 +85,7 @@ class _TvShowAppState extends State<TvShowApp> {
                 pageBuilder: (context, state) {
                   return FadeTransitionPage<dynamic>(
                     key: state.pageKey,
-                    child: ShowList()
+                    child: const TvShowResearch()
                   );
                 },
               ),
@@ -92,7 +93,7 @@ class _TvShowAppState extends State<TvShowApp> {
                   path: '/shows/:showId',
                   builder: (context, state){
                     final showId = state.pathParameters['showId'] ?? "0";
-                    return TvShowDetailsScreen(showId: int.parse(showId),);
+                    return TvShowDetailsScreen(showId: showId,);
                   }
               ),
               GoRoute(
